@@ -36,14 +36,28 @@ class ApplicationViews extends Component {
             )
     }
 
+    deleteAnimal = id => {
+        return fetch(`http://localhost:5002/animals/${id}`, {
+            method: "DELETE"
+        })
+        .then(e => e.json())
+        .then(() => fetch(`http://localhost:5002/animals`))
+        .then(e => e.json())
+        .then(animals => this.setState({
+            animals: animals
+        })
+      )
+    }
+
     render() {
         return (
             <React.Fragment>
                 <Route exact path="/" render={(props) => {
                     return <LocationList locations={this.state.locations} />
                 }} />
-                <Route path="/animals" render={(props) => {
-                    return <AnimalList animals={this.state.animals} />
+               <Route exact path="/animals" render={(prop) => {
+                  return <AnimalList deleteAnimal={this.deleteAnimal}
+                       animals={this.state.animals} />
                 }} />
                 <Route path="/employees" render={(props) => {
                     return <EmployeeList employees={this.state.employees} />

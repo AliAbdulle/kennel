@@ -1,30 +1,90 @@
 {
-    "employees": [
-    { "id": 1, "name": "Jessica Younker" },
-    { "id": 2, "name": "Jordan Nelson" },
-    { "id": 3, "name": "Zoe LeBlanc" },
-    { "id": 4, "name": "Blaise Roberts" }
-],
-
-"locations": [
-    { "id": 1, "name": "Nashville North", "address": "500 Circle Way" },
-    { "id": 2, "name": "Nashville South", "address": "10101 Binary Court" }
-],
-
-"animals":  [
-    { "id": 1, "name": "Doodles" },
-    { "id": 2, "name": "Jack" },
-    { "id": 3, "name": "Angus" },
-    { "id": 4, "name": "Henley" },
-    { "id": 5, "name": "Derkins" },
-    { "id": 6, "name": "Checkers" }
-],
-"owners": [
-{ "id": 1, "name": "Ryan Tanay",     "phone": "613 539 788" },
-{ "id": 2, "name": "Emma Beaton",    "phone": "619 789 9076" },
-{ "id": 3, "name": "Dani Adkins",    "phone": "615 589 7889" },
-{ "id": 4, "name": "Adam Oswalt",    "phone": "612 639 7882" },
-{ "id": 5, "name": "Fletcher Bangs", "phone": "618 539 0098" },
-{ "id": 6, "name": "Ange Holmes",    "phone": "404 539 0981" }
-]
+  "employees": [
+    {
+      "id": 1,
+      "name": "Jessica Younker"
+    },
+    {
+      "id": 2,
+      "name": "Jordan Nelson"
+    },
+    {
+      "id": 3,
+      "name": "Zoe LeBlanc"
+    },
+    {
+      "id": 4,
+      "name": "Blaise Roberts"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Nashville North",
+      "address": "500 Circle Way"
+    },
+    {
+      "id": 2,
+      "name": "Nashville South",
+      "address": "10101 Binary Court"
+    }
+  ],
+  "animals": [
+    {
+      "id": 3,
+      "name": "Angus"
+    },
+    {
+      "id": 4,
+      "name": "Henley"
+    },
+    {
+      "id": 5,
+      "name": "Derkins"
+    },
+    {
+      "id": 5,
+      "name": "Lookup map"
+    },
+    {
+      "id": 5,
+      "name": "Boby"
+    },
+    {
+      "id": 6,
+      "name": "Checkers"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Ryan Tanay",
+      "phone": "613 539 788"
+    },
+    {
+      "id": 2,
+      "name": "Emma Beaton",
+      "phone": "619 789 9076"
+    },
+    {
+      "id": 3,
+      "name": "Dani Adkins",
+      "phone": "615 589 7889"
+    },
+    {
+      "id": 4,
+      "name": "Adam Oswalt",
+      "phone": "612 639 7882"
+    },
+    {
+      "id": 5,
+      "name": "Fletcher Bangs",
+      "phone": "618 539 0098"
+    },
+    {
+      "id": 6,
+      "name": "Ange Holmes",
+      "phone": "404 539 0981"
+    }
+  ]
 }
