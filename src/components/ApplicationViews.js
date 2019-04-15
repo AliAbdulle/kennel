@@ -48,6 +48,19 @@ class ApplicationViews extends Component {
         })
       )
     }
+    deleteEmployee = id => {
+        return fetch(`http://localhost:5002/employees/${id}`, {
+            method: "DELETE"
+        })
+        .then(e => e.json())
+        .then(() => fetch(`http://localhost:5002/employees`))
+        .then(e => e.json())
+        .then(employees => this.setState({
+            employees: employees
+        })
+      )
+    }
+
 
     deleteAnimal = id => {
         return fetch(`http://localhost:5002/animals/${id}`, {
@@ -73,8 +86,9 @@ class ApplicationViews extends Component {
                        animals={this.state.animals} />
                 }} />
                 <Route path="/employees" render={(props) => {
-                    return <EmployeeList employees={this.state.employees} />
-                }} />
+                   return <EmployeeList deleteEmployee={this.deleteEmployee}
+                   employees={this.state.employees} />
+                 }} />
                 <Route path="/owners" render={(props) => {
                     return <OwnerList owners={this.state.owners} />
                 }} />
