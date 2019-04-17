@@ -4,7 +4,6 @@ import LocationList from './locations/LocationList'
 import EmployeeList from './employee/EmployeeList'
 import AnimalList from './animals/AnimalList'
 import OwnerList from './owners/OwnerList'
-import AnimalManager from "../"
 
 
 
