@@ -11,6 +11,10 @@
     {
       "id": 3,
       "name": "Zoe LeBlanc"
+    },
+    {
+      "id": 4,
+      "name": "Zoe LeBlanc"
     }
   ],
   "locations": [
@@ -27,28 +31,20 @@
   ],
   "animals": [
     {
+      "id": 2,
+      "name": "Cat"
+    },
+    {
       "id": 3,
-      "name": "Angus"
+      "name": "Monkey"
     },
     {
       "id": 4,
-      "name": "Henley"
+      "name": "Tiger"
     },
     {
       "id": 5,
-      "name": "Derkins"
-    },
-    {
-      "id": 5,
-      "name": "Lookup map"
-    },
-    {
-      "id": 5,
-      "name": "Boby"
-    },
-    {
-      "id": 6,
-      "name": "Checkers"
+      "name": "Sumaba"
     }
   ],
   "owners": [

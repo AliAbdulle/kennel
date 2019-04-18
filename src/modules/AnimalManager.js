@@ -1,16 +1,16 @@
-const apiURL = "http://localhost:5002/animal"
+const apiURL = "http://localhost:5002"
 
 export default {
     get(id) {
         return fetch(`${apiURL}/animals/${id}`).then(r => r.json())
-    }, 
+    },
 
     getAll() {
         return fetch(`${apiURL}/animals`).then(r => r.json())
     },
 
     delete(id) {
-        return fetch(`${apiURL}/animal/${id}`, {
+        return fetch(`${apiURL}/animals/${id}`, {
             method: "DELETE"
         })
         .then(r => r.json())
@@ -21,7 +21,7 @@ export default {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
-            }, 
+            },
             body:JSON.stringify(newAnimal)
         })
         .then(data => data.json())

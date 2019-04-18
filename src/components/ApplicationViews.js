@@ -5,6 +5,10 @@ import EmployeeList from './employee/EmployeeList'
 import AnimalList from './animals/AnimalList'
 import OwnerList from './owners/OwnerList'
 import AnimalForm from './animals/AnimalForm'
+import AnimalsManager from '../modules/AnimalManager'
+import EmployeesManager from '../modules/EmployeesManager'
+import LocationsManager from '../modules/LocationManager'
+import OwnersManager from '../modules/OwnersManager';
 
 
 
@@ -17,64 +21,46 @@ class ApplicationViews extends Component {
     }
     componentDidMount() {
         const newState = {}
-        fetch("http://localhost:5002/animals")
-            .then(r => r.json())
-            .then(animals => {
-                newState.animals = animals
-            }
-            )
-            .then(() => fetch("http://localhost:5002/employees")
-                .then(r => r.json()))
-            .then(employees => {
-                newState.employees = employees
-            }
-            )
-            .then(() => fetch("http://localhost:5002/owners")
-                .then(r => r.json()))
-            .then(owners => {
-                newState.owners = owners
-                this.setState(newState)
-            }
-            )
+            AnimalsManager.getAll()
+                .then(animals => newState.animals = animals)
+             EmployeesManager.getAll()
+                .then(employees => newState.employees = employees)
+            LocationsManager.getAll()
+                .then(locations => newState.locations = locations)
+            OwnersManager.getAll()
+                .then(owners => newState.owners = owners)
+                .then(() => this.setState(newState))
+
     }
 
     deleteAnimal = id => {
-        return fetch(`http://localhost:5002/animals/${id}`, {
-            method: "DELETE"
-        })
-            .then(e => e.json())
-            .then(() => fetch(`http://localhost:5002/animals`))
-            .then(e => e.json())
-            .then(animals => this.setState({
-                animals: animals
-            })
-            )
+        return AnimalsManager.delete(id)
+        .then(() => AnimalsManager.getAll())
+        .then(animals => this.setState({
+            animals: animals
+        }))
+
     }
     deleteEmployee = id => {
-        return fetch(`http://localhost:5002/employees/${id}`, {
-            method: "DELETE"
-        })
-            .then(e => e.json())
-            .then(() => fetch(`http://localhost:5002/employees`))
-            .then(e => e.json())
+            return EmployeesManager.delete(id)
+            .then(() => EmployeesManager.getAll())
             .then(employees => this.setState({
                 employees: employees
-            })
-            )
+            }))
     }
-
-
     deleteOwner = id => {
-        return fetch(`http://localhost:5002/owners/${id}`, {
-            method: "DELETE"
-        })
-            .then(e => e.json())
-            .then(() => fetch(`http://localhost:5002/owners`))
-            .then(e => e.json())
-            .then(owners => this.setState({
-                owners: owners
-            })
-            )
+        return OwnersManager.delete(id)
+        .then(() => OwnersManager.getAll())
+        .then(owners => this.setState({
+            owners: owners
+        }))
+    }
+    deleteLocation = id => {
+        return LocationsManager.delete(id)
+        .then(() => LocationsManager.getAll())
+        .then(locations => this.setState({
+            locations: locations
+        }))
     }
 
     render() {
@@ -92,12 +78,6 @@ class ApplicationViews extends Component {
                         addAnimal={this.addAnimal}
                         employees={this.state.employees} />
                 }} />
-
-
-                <Route exact path="/animals" render={(prop) => {
-                    return <AnimalList deleteAnimal={this.deleteAnimal}
-                        animals={this.state.animals} />
-                }} />
                 <Route path="/employees" render={(props) => {
                     return <EmployeeList deleteEmployee={this.deleteEmployee}
                         employees={this.state.employees} />
@@ -106,6 +86,10 @@ class ApplicationViews extends Component {
                     return <OwnerList deleteOwner={this.deleteOwner}
                         owners={this.state.owners} />
                 }} />
+                {/* <Route path="/locations" render={(props) => {
+                    return <LocationList deleteOwner={this.deleteOwner}
+                        owners={this.state.owners} />
+                }} /> */}
             </React.Fragment>
         )
     }
