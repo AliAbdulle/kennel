@@ -48,6 +48,7 @@ class ApplicationViews extends Component {
                 employees: employees
             }))
     }
+
     deleteOwner = id => {
         return OwnersManager.delete(id)
         .then(() => OwnersManager.getAll())
@@ -89,6 +90,7 @@ class ApplicationViews extends Component {
                 <Route path="/locations" render={(props) => {
                     return <LocationList deleteOwner={this.deleteOwner}
                         owners={this.state.owners} />
+
                 }} />
             </React.Fragment>
         )
