@@ -20,13 +20,13 @@ class ApplicationViews extends Component {
             .then(r => r.json())
             .then(animals => {
                 newState.animals = animals
-                this.setState(newState)}
+                }
                 )
             .then(() => fetch("http://localhost:5002/employees")
             .then(r => r.json()))
             .then(employees => {
                 newState.employees = employees
-                 this.setState(newState)}
+                 }
             )
             .then(() => fetch("http://localhost:5002/owners")
             .then(r => r.json()))
@@ -76,6 +76,19 @@ class ApplicationViews extends Component {
 
 
 
+    deleteOwner = id => {
+        return fetch(`http://localhost:5002/owners/${id}`, {
+            method: "DELETE"
+        })
+        .then(e => e.json())
+        .then(() => fetch(`http://localhost:5002/owners`))
+        .then(e => e.json())
+        .then(owners => this.setState({
+            owners: owners
+        })
+      )
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -91,7 +104,9 @@ class ApplicationViews extends Component {
                    employees={this.state.employees} />
                  }} />
                 <Route path="/owners" render={(props) => {
+
                     return <OwnerList deleteOwner={this.deleteOwner}owners={this.state.owners} />
+                  
                 }} />
             </React.Fragment>
         )
