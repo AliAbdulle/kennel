@@ -15,7 +15,7 @@ export default class AnimalList  extends Component {
                             {animal.name}
                             <button
                                 onClick={() => this.props.deleteAnimal(animal.id)}
-                                className="card-link">Delete Animal</button>
+                                className="card-link">Delete</button>
                         </h5>
                     </div>
                 </div>
