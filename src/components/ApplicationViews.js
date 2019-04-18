@@ -5,7 +5,7 @@ import EmployeeList from './employee/EmployeeList'
 import AnimalList from './animals/AnimalList'
 import OwnerList from './owners/OwnerList'
 import AnimalForm from './animals/AnimalForm'
-import AnimalsManager from '../modules/AnimalManager'
+import AnimalsManager from '../modules/AnimalsManager'
 import EmployeesManager from '../modules/EmployeesManager'
 import LocationsManager from '../modules/LocationManager'
 import OwnersManager from '../modules/OwnersManager';
@@ -86,10 +86,10 @@ class ApplicationViews extends Component {
                     return <OwnerList deleteOwner={this.deleteOwner}
                         owners={this.state.owners} />
                 }} />
-                {/* <Route path="/locations" render={(props) => {
+                <Route path="/locations" render={(props) => {
                     return <LocationList deleteOwner={this.deleteOwner}
                         owners={this.state.owners} />
-                }} /> */}
+                }} />
             </React.Fragment>
         )
     }
