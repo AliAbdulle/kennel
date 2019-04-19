@@ -4,6 +4,7 @@ import LocationList from './locations/LocationList'
 import EmployeeList from './employee/EmployeeList'
 import AnimalList from './animals/AnimalList'
 import OwnerList from './owners/OwnerList'
+//import AnimalDetail from './animal/AnimalDetail'
 import AnimalForm from './animals/AnimalForm'
 import AnimalsManager from '../modules/AnimalsManager'
 import EmployeesManager from '../modules/EmployeesManager'
@@ -66,7 +67,10 @@ class ApplicationViews extends Component {
     render() {
         return (
             <React.Fragment>
-                <Route exact path="/animals" render={(props) => {
+                 <Route exact path="/" render={(props) => {
+                    return <LocationList locations={this.state.locations} />
+                }} />
+                <Route path="/animals" render={(props) => {
                     return <AnimalList {...props}
                         deleteAnimal={this.deleteAnimal}
                         animals={this.state.animals} />
@@ -78,6 +82,7 @@ class ApplicationViews extends Component {
                         addAnimal={this.addAnimal}
                         employees={this.state.employees} />
                 }} />
+
                 <Route path="/employees" render={(props) => {
                     return <EmployeeList deleteEmployee={this.deleteEmployee}
                         employees={this.state.employees} />
@@ -86,10 +91,7 @@ class ApplicationViews extends Component {
                     return <OwnerList deleteOwner={this.deleteOwner}
                         owners={this.state.owners} />
                 }} />
-                <Route path="/locations" render={(props) => {
-                    return <LocationList deleteOwner={this.deleteOwner}
-                        owners={this.state.owners} />
-                }} />
+
             </React.Fragment>
         )
     }
