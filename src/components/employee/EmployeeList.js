@@ -27,7 +27,6 @@ export default class EmployeeList extends Component {
                         </h5>
                     </div>
                 </div>
-                    
                     )
                 }
 

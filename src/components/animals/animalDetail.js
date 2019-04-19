@@ -9,7 +9,7 @@ export default class Animals extends Component {
     }
 
     render() {
-        console.log(this.props)
+        //console.log(this.props)
         return (
             <section className="animals">
                 <div key={ this.props.animal.id } className="card">
@@ -23,7 +23,7 @@ export default class Animals extends Component {
                                 () => {
                                     this.setState(
                                         { saveDisabled: true },
-                                        () => this.props.dischargeAnimal(this.props.animal.id)
+                                        () => this.props.dischargeAnimal(this.props.Animals.id)
                                     )
                                 }
                             }

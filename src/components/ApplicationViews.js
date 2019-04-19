@@ -76,15 +76,15 @@ class ApplicationViews extends Component {
             });
 
 
-    deleteLocation = id => {
-        return LocationsManager.delete(id)
-            .then(() => LocationsManager.getAll())
-            .then(locations =>
-                this.setState({
-                    locations: locations
-                })
-            );
-    };
+    // deleteLocation = id => {
+    //     return LocationsManager.delete(id)
+    //         .then(() => LocationsManager.getAll())
+    //         .then(locations =>
+    //             this.setState({
+    //                 locations: locations
+    //             })
+    //         );
+    // };
 
     render() {
         return (
