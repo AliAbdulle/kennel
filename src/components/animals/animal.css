@@ -1,9 +1,8 @@
-.animals {
-    margin-top: 50px;
-}
+
 .animals {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 50px;
 }
 
 .icon--dog {
@@ -25,4 +24,7 @@
 .card-link {
     margin: 12px 0 0 0;
     font-size: 0.7em;
+}
+.ownerList {
+    font-size: 0.75em;
 }
